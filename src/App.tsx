@@ -2,57 +2,65 @@ import React, {MouseEvent} from 'react';
 import './App.css';
 import {Button} from "./components/Button";
 
-function App() {
-    // const myFirstSubscriber = (event:MouseEvent<HTMLButtonElement>) => {
-    //     console.log('Hello! I am Vasia!')
-    // }
-    //
-    // const mySecondSubscriber = (event:MouseEvent<HTMLButtonElement>) => {
-    //     console.log('Hello! I am Ivan!')
-    // }
-
-// const onClickHandler = (name: string) => {
-//     console.log(name);
+// function App() {
+//
+//     const Button1Foo = (subscriber: string, age: number, address: string) => {
+//         console.log(subscriber, age, address)
+//     }
+//
+//     const Button2Foo = (subscriber: string) => {
+//         console.log(subscriber)
+//     }
+//
+//     const Button3Foo = () => {
+//         console.log('I am stupid button')
+//     }
+//
+//
+//     return (
+//         <div className="App">
+//             <Button name={'MyYouTubeChanel-1'} callBack={()=>Button1Foo('Hello! I am Vasia!', 21, 'Live in Minsk')}/>
+//             <Button name={'MyYouTubeChanel-2'} callBack={()=>Button2Foo('Hello! I am Ivan!')}/>
+//             <Button name={'Stupid Button'} callBack={Button3Foo}/>
+//         </div>
+//     );
 // }
 
-    // const foo1 = () => {
-    //     console.log(100200);
-    // }
-    //
-    // const foo2 = (num: number) => {
-    //     console.log(num)
-    // }
 
-    const Button1Foo = (subscriber: string, age: number, address: string) => {
-        console.log(subscriber, age, address)
+
+function App() {
+
+    // const [buttons, setButtons] = useState([
+    //     {id: 1, subscriber: 'Hello! I am Vasia!', age: 21, address: 'Live in Minsk'},
+    //     {id: 2, subscriber: 'Hello! I am Ivan!'},
+    //     {id: 3}
+    //     ]);
+
+    const ButtonFoo = (id: number, subscriber?: string, age?: number, address?: string) => {
+        if (id === 1) {
+            console.log(subscriber, age, address)
+        } else if (id === 2) {
+            console.log(subscriber)
+        } else {
+            console.log('I am Stupid Button')
+        }
     }
 
-    const Button2Foo = (subscriber: string) => {
-        console.log(subscriber)
-    }
-
-    const Button3Foo = () => {
-        console.log('I am stupid button')
-    }
 
 
     return (
         <div className="App">
-            {/*<button onClick={(event)=>{console.log('Hello!')}}>MyYouTubeChanel-1</button>*/}
-            {/*<button onClick={(event:MouseEvent<HTMLButtonElement>)=>onClickHandler('Vasia')}>MyYouTubeChanel-1</button>*/}
-            {/*<button onClick={(event:MouseEvent<HTMLButtonElement>)=>onClickHandler('Ivan')}>MyYouTubeChanel-2</button>*/}
 
-            {/*<button onClick={foo1}>1</button>*/}
-            {/*<button onClick={()=>foo2(100200)}>2</button>*/}
-
-            {/* eslint-disable-next-line react/jsx-no-undef */}
-
-            <Button name={'MyYouTubeChanel-1'} callBack={()=>Button1Foo('Hello! I am Vasia!', 21, 'Live in Minsk')}/>
-            <Button name={'MyYouTubeChanel-2'} callBack={()=>Button2Foo('Hello! I am Ivan!')}/>
-            <Button name={'Stupid Button'} callBack={Button3Foo}/>
+            <Button name={'MyYouTubeChanel-1'} callBack={()=>ButtonFoo(1, 'Hello! I am Vasia!', 21, 'Live in Minsk')}/>
+            <Button name={'MyYouTubeChanel-2'} callBack={()=>ButtonFoo(2,  'Hello! I am Ivan!')}/>
+            <Button name={'Stupid Button'} callBack={()=>ButtonFoo(3, 'Stupid Button')}/>
 
         </div>
     );
 }
+
+
+
+
 
 export default App;
